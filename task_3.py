@@ -19,7 +19,21 @@
 
 
 def everything_for_your_cat(cats_data):
-    # Здесь нужно написать код
+    owners_cats = {}
+    for i in cats_data:
+        name, age, first_name, surname = i
+        if (first_name, surname) not in owners_cats:
+            owners_cats[(first_name, surname)] = [(name, age)]
+        else:
+            owners_cats[(first_name, surname)].append((name, age))
+    our_str = ''
+    for j in owners_cats:
+        name, surname = j
+        our_str += f'{name} {surname}: '
+        cats_info = ''
+        for cat in owners_cats[j]:
+            cats_info += f'{cat[0]}, {cat[1]}; '
+        our_str += cats_info[:-2] + '\n'
     return our_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

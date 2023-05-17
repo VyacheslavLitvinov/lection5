@@ -7,7 +7,15 @@
 
 
 def repeats(our_str):
-    # Здесь нужно написать код
+    count = {}
+    new_str = ''
+    for i in our_str:
+        if i in count:
+            count[i] += 1
+            new_str += i + "_" + str(count[i])
+        else:
+            count[i] = 1
+            new_str += i + "_" + str(count[i])
     return new_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
